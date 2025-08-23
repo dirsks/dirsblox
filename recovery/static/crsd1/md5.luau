@@ -9,19 +9,21 @@ end
 
 -- // Control folders
 loadstring(game:HttpGet("https://pastebin.com/raw/cJzfu4pf"))()
-local asstfld = "Dirsblox/Core/Assets"
-local sysfld = "Dirsblox/Core/System"
+
+local asstfld   = "Dirsblox/Core/Assets"
+local sysfld    = "Dirsblox/Core/System"
 local modulefld = "Dirsblox/Core/System/Modules"
 local tokenPath = "Dirsblox/Core/token"
-local dataPath = "Dirsblox/Core/data"
+local dataPath  = "Dirsblox/Core/data"
+
 local player = game.Players.LocalPlayer
 local content = "dirsblox tokens v1.5, player name: " .. player.Name
 local correctHash = simulatedMD5(content)
 
 -- // Assets
 local imgd = "Dirsblox/Core/Assets/prestart.img"
-local gma = "Dirsblox/Core/Assets/Games"
-local ft = "Dirsblox/Core/Assets/Games/FTF"
+local gma  = "Dirsblox/Core/Assets/Games"
+local ft   = "Dirsblox/Core/Assets/Games/FTF"
 
 -- // Safe create functions
 local function safeWrite(path, content)
@@ -80,14 +82,19 @@ end
 
 -- // Token system
 local function createToken()
-    safeWrite(tokenPath, correctHash)
-    print("[DSBCore] Token successfully created: " .. correctHash)
+    if not isfile(tokenPath) then
+        writefile(tokenPath, correctHash)
+        print("[DSBCore] Token successfully created: " .. correctHash)
+    else
+        print("[DSBCore] Token already exists, skipped.")
+    end
 end
 
 local function verifyToken()
     local success, token = pcall(readfile, tokenPath)
     if not success then
-        print("[DSBCore] Token missing! ERR_CD: 33")
+        print("[DSBCore] Token missing! Creating one now...")
+        createToken() -- cria apenas uma vez
         return false
     end
     if token ~= correctHash then
@@ -98,6 +105,7 @@ local function verifyToken()
     return true
 end
 
+-- // Run check
 if not verifyToken() then
     print("[DSBCore] To reactivate, create 'token' in Dirsblox/Core/ with the correct MD5 hash.")
 else
