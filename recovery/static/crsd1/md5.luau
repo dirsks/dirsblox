@@ -117,13 +117,9 @@ local basePath  = "Dirsblox/Core/Assets/Games/FTF"
 local filePath  = basePath.."/default.png"
 local basePath1 = "Dirsblox/Core/Assets/Icons"
 local filePath1 = basePath1.."/zB3rMje.png"
-local basePath2 = "Dirsblox/Core/Assets/Icons"
 local filePath2 = basePath1.."/vJU07MU.png"
-local basePath3 = "Dirsblox/Core/Assets/Icons"
 local filePath3 = basePath1.."/pMrzr6z.png"
-local basePath4 = "Dirsblox/Core/Assets/Icons"
 local filePath4 = basePath1.."/CVUSDOX.png"
-local basePath5 = "Dirsblox/Core/Assets/Icons"
 local filePath5 = basePath1.."/gfJHGSv.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
