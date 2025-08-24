@@ -30,7 +30,7 @@ local ft   = "Dirsblox/Core/Assets/Games/FTF"
 local wrngs = "Dirsblox/Core/System/Modules/WarningsModule.lua"
 local verx = "Dirsblox/Core/System/Modules/VersionsDirsbloxModule.lua"
 local exc = "Dirsblox/Core/System/Modules/WarnUserDiscordModule.lua"
-local nt = "Dirsblox/Core/System/Modules/DownloadImagesModule.lua
+local nt = "Dirsblox/Core/System/Modules/DownloadImagesModule.lua"
 local OperatingContent1 = [[
 -- // Copyright © 2018 EchoZone Productions
 -- // DIRSBLOX Open Source. DELETING ANY FILES/FUNCTIONS MAY RESULT IN SCRIPT MALFUNCTIONS.
@@ -154,11 +154,11 @@ end
 
 -- download custom images
 downloadImage(filePath, imageUrl)
-downloadImage(filePath1, imageUrl1)
 downloadImage(filePath2, imageUrl2)
 downloadImage(filePath3, imageUrl3)
 downloadImage(filePath4, imageUrl4)
 downloadImage(filePath5, imageUrl5)
+downloadImage(filePath6, imageUrl6)
 
 -- // Token system
 local function createToken()
