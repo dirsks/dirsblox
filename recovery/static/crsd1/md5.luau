@@ -90,7 +90,7 @@ local function safeWrite(path, content)
         print("[SYSTEM] Refused", path)
     end
 end
-
+--
 local function safeFolder(path)
     if not isfolder(path) then
         makefolder(path)
