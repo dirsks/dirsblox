@@ -131,7 +131,7 @@ local imageUrl6 = "https://i.imgur.com/gfJHGSv.png" -- tab5.png (Settings)
 
 local response = request or (syn and syn.request) or http_request
 if not response then
-    warn("Your executor does not support requests!")
+    warn("Your executor does not support requests")
     return
 end
 
@@ -153,12 +153,12 @@ local function downloadImage(path, url)
 end
 
 -- download custom images
-downloadImage(filePath, imageUrl)
-downloadImage(filePath2, imageUrl2)
-downloadImage(filePath3, imageUrl3)
-downloadImage(filePath4, imageUrl4)
-downloadImage(filePath5, imageUrl5)
-downloadImage(filePath6, imageUrl6)
+downloadImage(filePath,  imageUrl)
+downloadImage(filePath1, imageUrl2)
+downloadImage(filePath2, imageUrl3)
+downloadImage(filePath3, imageUrl4)
+downloadImage(filePath4, imageUrl5)
+downloadImage(filePath5, imageUrl6)
 
 -- // Token system
 local function createToken()
