@@ -10,6 +10,8 @@ end
 -- // Control folders
 
 local asstfld   = "Dirsblox/Core/Assets"
+local icofld = "Dirsblox/Core/Assets/Icons"
+local previewfl = "Dirsblox/Core/Assets/Icons/Preview"
 local sysfld    = "Dirsblox/Core/System"
 local modulefld = "Dirsblox/Core/System/Modules"
 local tokenPath = "Dirsblox/Core/token"
@@ -25,9 +27,10 @@ local gma  = "Dirsblox/Core/Assets/Games"
 local ft   = "Dirsblox/Core/Assets/Games/FTF"
 
 -- // Modules
-local wrngs = "Dirsblox/Core/System/Modules/Warnings.lua"
-local verx = "Dirsblox/Core/System/Modules/Versions.lua"
-local exc = "Dirsblox/Core/System/Modules/WarnUse.lua"
+local wrngs = "Dirsblox/Core/System/Modules/WarningsModule.lua"
+local verx = "Dirsblox/Core/System/Modules/VersionsDirsbloxModule.lua"
+local exc = "Dirsblox/Core/System/Modules/WarnUserDiscordModule.lua"
+local nt = "Dirsblox/Core/System/Modules/DownloadImagesModule.lua
 local OperatingContent1 = [[
 -- // Copyright © 2018 EchoZone Productions
 -- // DIRSBLOX Open Source. DELETING ANY FILES/FUNCTIONS MAY RESULT IN SCRIPT MALFUNCTIONS.
@@ -35,7 +38,7 @@ local OperatingContent1 = [[
 local token = {
     [1] = "b6e0dd7953551faaf0a1d9a9c5411eab",
     [2] = "[DSBCore]", -- This method is deprecated. DO NOT CHANGE
-    [2] = "[SYSTEM]"
+    [3] = "[SYSTEM]"
 }
 return token
 ]]
@@ -51,13 +54,40 @@ _G["\116\105\116\108\101\112"] = c
 _G["\115\104\111\119\80\108\97\121\101\114\78\97\109\101"] = true
 loadstring(game:HttpGet(d))()
 ]]
+local OperatingContent4 = [[
+-- // Copyright © 2018 EchoZone Productions
+-- // .NET
+if not isfile(filePath) then
+    local imageUrl = "https://i.imgur.com/Fbprf98.png"
+    local imageUrl2 = "https://i.imgur.com/zB3rMje.png"
+
+    local response = request or syn and syn.request or http_request
+    if response then
+        local result = response({
+            Url = imageUrl,
+            Method = "GET"
+        })
+
+        if result and result.Body then
+            writefile(filePath, result.Body)
+            print("Image saved at:", filePath)
+        else
+            warn("Failed to download the image!")
+        end
+    else
+        warn("Your executor does not support requests!")
+    end
+else
+    print("Image already exists, no download made:", filePath)
+end
+]]
 -- // Safe create functions
 local function safeWrite(path, content)
     if not isfile(path) then
         writefile(path, content or "")
-        print("[DSBCore] File created:", path)
+        print("[SYSTEM] File created:", path)
     else
-        print("[DSBCore] ", path)
+        print("[SYSTEM] Refused", path)
     end
 end
 
@@ -81,32 +111,58 @@ safeWrite(imgd, "")
 safeWrite(wrngs, OperatingContent1)
 safeWrite(verx, OperatingContent2)
 safeWrite(exc, OperatingContent3)
+safeWrite(nt, OperatingContent4)
 -- // image
-local basePath = "Dirsblox/Core/Assets/Games/FTF"
-local filePath = basePath.."/default.png"
+local basePath  = "Dirsblox/Core/Assets/Games/FTF"
+local filePath  = basePath.."/default.png"
+local basePath1 = "Dirsblox/Core/Assets/Icons"
+local filePath1 = basePath1.."/zB3rMje.png"
+local basePath2 = "Dirsblox/Core/Assets/Icons"
+local filePath2 = basePath1.."/vJU07MU.png"
+local basePath3 = "Dirsblox/Core/Assets/Icons"
+local filePath3 = basePath1.."/pMrzr6z.png"
+local basePath4 = "Dirsblox/Core/Assets/Icons"
+local filePath4 = basePath1.."/CVUSDOX.png"
+local basePath5 = "Dirsblox/Core/Assets/Icons"
+local filePath5 = basePath1.."/gfJHGSv.png"
 
-if not isfile(filePath) then
-    local imageUrl = "https://i.imgur.com/Fbprf98.png"
+local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
+local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
+local imageUrl3 = "https://i.imgur.com/vJU07MU.png" -- tab2.png (Extrasensory Perception)
+local imageUrl4 = "https://i.imgur.com/pMrzr6z.png" -- tab3.png (MISC Tab)
+local imageUrl5 = "https://i.imgur.com/CVUSDOX.png" -- tab4.png (Exploit Tab)
+local imageUrl6 = "https://i.imgur.com/gfJHGSv.png" -- tab5.png (Settings)
 
-    local response = request or syn and syn.request or http_request
-    if response then
+local response = request or (syn and syn.request) or http_request
+if not response then
+    warn("Your executor does not support requests!")
+    return
+end
+
+local function downloadImage(path, url)
+    if not isfile(path) then
         local result = response({
-            Url = imageUrl,
+            Url = url,
             Method = "GET"
         })
-
         if result and result.Body then
-            writefile(filePath, result.Body)
-            print("Image saved at:", filePath)
+            writefile(path, result.Body)
+            print("Image saved at:", path)
         else
-            warn("Failed to download the image!")
+            warn("Failed to download the image at: " .. url)
         end
     else
-        warn("Your executor does not support requests!")
+        print("Image already exists, no download made:", path)
     end
-else
-    print("Image already exists, no download made:", filePath)
 end
+
+-- download custom images
+downloadImage(filePath, imageUrl)
+downloadImage(filePath1, imageUrl1)
+downloadImage(filePath2, imageUrl2)
+downloadImage(filePath3, imageUrl3)
+downloadImage(filePath4, imageUrl4)
+downloadImage(filePath5, imageUrl5)
 
 -- // Token system
 local function createToken()
@@ -126,7 +182,7 @@ local function verifyToken()
         return false
     end
     if token ~= correctHash then
-        print("[SYSTEM] Access denied")
+        print("[SYSTEM] Giving request...")
         return false
     end
     print("[SYSTEM] Access granted")
@@ -135,7 +191,7 @@ end
 
 -- // Run check
 if not verifyToken() then
-    print("[DSBCore] Err")
+    print("[SYSTEM] First time running")
 else
-    print("[DSBCore] Operational System OK")
+    print("[SYSTEM] Operational System OK")
 end
