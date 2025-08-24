@@ -25,16 +25,17 @@ local gma  = "Dirsblox/Core/Assets/Games"
 local ft   = "Dirsblox/Core/Assets/Games/FTF"
 
 -- // Modules
-local wrngs = "Dirsblox/Core/Modules/Warnings.lua"
-local verx = "Dirsblox/Core/Modules/Versions.lua"
-local exc = "Dirsblox/Core/Modules/WarnUse.lua"
+local wrngs = "Dirsblox/Core/System/Modules/Warnings.lua"
+local verx = "Dirsblox/Core/System/Modules/Versions.lua"
+local exc = "Dirsblox/Core/System/Modules/WarnUse.lua"
 local OperatingContent1 = [[
 -- // Copyright © 2018 EchoZone Productions
 -- // DIRSBLOX Open Source. DELETING ANY FILES/FUNCTIONS MAY RESULT IN SCRIPT MALFUNCTIONS.
 
 local token = {
     [1] = "b6e0dd7953551faaf0a1d9a9c5411eab",
-    [2] = "[DSBCore]"
+    [2] = "[DSBCore]", -- This method is deprecated. DO NOT CHANGE
+    [2] = "[SYSTEM]"
 }
 return token
 ]]
@@ -70,17 +71,16 @@ local function safeFolder(path)
 end
 
 -- // Create structure only once
-safeWrite(dataPath, "")
-safeWrite(imgd, "")
-safeWrite(wrngs, OperatingContent1)
-safeWrite(verx, OperatingContent2)
-safeWrite(exc, OperatingContent3)
 safeFolder(sysfld)
 safeFolder(modulefld)
 safeFolder(asstfld)
 safeFolder(gma)
 safeFolder(ft)
-
+safeWrite(dataPath, "")
+safeWrite(imgd, "")
+safeWrite(wrngs, OperatingContent1)
+safeWrite(verx, OperatingContent2)
+safeWrite(exc, OperatingContent3)
 -- // image
 local basePath = "Dirsblox/Core/Assets/Games/FTF"
 local filePath = basePath.."/default.png"
@@ -114,22 +114,22 @@ local function createToken()
         writefile(tokenPath, correctHash)
         print("[DSBCore] Token successfully created: " .. correctHash)
     else
-        print("[DSBCore] Returned.")
+        print("[SYSTEM] File ignored: returned false")
     end
 end
 
 local function verifyToken()
     local success, token = pcall(readfile, tokenPath)
     if not success then
-        print("[DSBCore] Creating token")
+        print("[SYSTEM] Creating token...")
         createToken()
         return false
     end
     if token ~= correctHash then
-        print("[DSBCore] Token is invalid.")
+        print("[SYSTEM] Access denied")
         return false
     end
-    print("[DSBCore] Token is valid.")
+    print("[SYSTEM] Access granted")
     return true
 end
 
