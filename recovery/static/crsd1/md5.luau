@@ -122,6 +122,7 @@ local filePath2 = basePath1.."vJU07MU.png"
 local filePath3 = basePath1.."pMrzr6z.png"
 local filePath4 = basePath1.."CVUSDOX.png"
 local filePath5 = basePath1.."gfJHGSv.png"
+local filePath6 = basePath1.."5uT3mrj.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
 local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
@@ -129,6 +130,7 @@ local imageUrl3 = "https://i.imgur.com/vJU07MU.png" -- tab2.png (Extrasensory Pe
 local imageUrl4 = "https://i.imgur.com/pMrzr6z.png" -- tab3.png (MISC Tab)
 local imageUrl5 = "https://i.imgur.com/CVUSDOX.png" -- tab4.png (Exploit Tab)
 local imageUrl6 = "https://i.imgur.com/gfJHGSv.png" -- tab5.png (Settings)
+local imageUrl7 = "https://i.imgur.com/5uT3mrj.png" -- tipicon.png (++)
 
 local response = request or (syn and syn.request) or http_request
 if not response then
@@ -160,6 +162,7 @@ downloadImage(filePath2, imageUrl3)
 downloadImage(filePath3, imageUrl4)
 downloadImage(filePath4, imageUrl5)
 downloadImage(filePath5, imageUrl6)
+downloadImage(filePath6, imageUrl7)
 
 -- // Token system
 local function createToken()
