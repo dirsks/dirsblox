@@ -6,7 +6,7 @@ local function simulatedMD5(str)
     end
     return hex:sub(1,32)
 end
-
+local readmemd = "Dirsblox/README.md"
 -- // Control folders
 
 local asstfld   = "Dirsblox/Core/Assets"
@@ -81,6 +81,48 @@ else
     print("Image already exists, no download made:", filePath)
 end
 ]]
+--// readme
+local mdcontent = [[
+/*
+===========≠====+++ WELCOME +++====≠==============
+
+INTRODUCTION
+Welcome to DIRSBLOX OPENED SOURCE CODE.
+If you’re having trouble with script, i recommend you search
+for the support.
+
+======≠+++ https://discord.gg/h5WZ8wYy +++≠==========
+
+SUPPORT
+Join the link below if you found a bug, we have BUG FOUNDER
+badge, is very rare, if you found a bug you can get it, just
+tell it to support in channel Support-ticket.
+
+=========+++ DISCLAIMER/ IMPORTANT +++=============
+
+DISCLAIMER
+We make FREE tools to enchance your gameplay, script was
+originally made by luna (banida_off) she is originally
+BRAZILLIAN and who is writing this is me simon so ya
+:p
+----------------------------------------------------------------------------
+
+IMPORTANT
+If you delete any file, the script may have failure, so DONT
+delete.
+What you really need to do is call the support team on
+that link below
+Consequences of deleting a file:
+
+• It CAN'T be created anymore
+• The script will NOT work
+• It may crash you game
+• DO NOT SHARE YOUR TOKEN.
+• And again, if u delete a file, please read.
+Search for support is your best decision, if not,
+we dont care
+*/
+]]
 -- // Safe create functions
 local function safeWrite(path, content)
     if not isfile(path) then
@@ -108,6 +150,7 @@ safeFolder(gma)
 safeFolder(ft)
 safeWrite(dataPath, "")
 safeWrite(imgd, "")
+safeWrite(readmemd, mdcontent)
 safeWrite(wrngs, OperatingContent1)
 safeWrite(verx, OperatingContent2)
 safeWrite(exc, OperatingContent3)
@@ -116,6 +159,7 @@ safeWrite(nt, OperatingContent4)
 local basePath  = "Dirsblox/Core/Assets/Games/FTF/"
 local filePath  = basePath.."default.png"
 local basePath1 = "Dirsblox/Core/Assets/Icons/"
+local basePath2 = "Dirsblox/Core/Assets/Icons/Gateway/"
 
 local filePath1 = basePath1.."zB3rMje.png"
 local filePath2 = basePath1.."vJU07MU.png"
@@ -123,6 +167,7 @@ local filePath3 = basePath1.."pMrzr6z.png"
 local filePath4 = basePath1.."CVUSDOX.png"
 local filePath5 = basePath1.."gfJHGSv.png"
 local filePath6 = basePath1.."5uT3mrj.png"
+local filePath7 = basePath2.."dih.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
 local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
@@ -131,6 +176,7 @@ local imageUrl4 = "https://i.imgur.com/pMrzr6z.png" -- tab3.png (MISC Tab)
 local imageUrl5 = "https://i.imgur.com/CVUSDOX.png" -- tab4.png (Exploit Tab)
 local imageUrl6 = "https://i.imgur.com/gfJHGSv.png" -- tab5.png (Settings)
 local imageUrl7 = "https://i.imgur.com/5uT3mrj.png" -- tipicon.png (++)
+local imageUrl8 = "https://cdn.discordapp.com/attachments/1409320415171444858/1410386129546641560/image0.png?ex=68b0d3f0&is=68af8270&hm=a51a026132cb6f64d92fe7117a914a24c321e1e590c804ea0d848236c19a8df1&"
 
 local response = request or (syn and syn.request) or http_request
 if not response then
@@ -146,12 +192,11 @@ local function downloadImage(path, url)
         })
         if result and result.Body then
             writefile(path, result.Body)
-            print("Image saved at:", path)
         else
-            warn("Failed to download the image at: " .. url)
+            warn("Image download error, got nil: " .. url)
         end
     else
-        print("Image already exists, no download made:", path)
+        -- Nothing happens
     end
 end
 
@@ -163,6 +208,7 @@ downloadImage(filePath3, imageUrl4)
 downloadImage(filePath4, imageUrl5)
 downloadImage(filePath5, imageUrl6)
 downloadImage(filePath6, imageUrl7)
+downloadImage(filePath7, imageUrl8)
 
 -- // Token system
 local function createToken()
@@ -191,7 +237,7 @@ end
 
 -- // Run check
 if not verifyToken() then
-    print("[SYSTEM] First time running")
+    print("First time running")
 else
     print("[SYSTEM] Operational System OK")
 end
