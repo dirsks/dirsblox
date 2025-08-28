@@ -14,8 +14,13 @@ local icofld = "Dirsblox/Core/Assets/Icons"
 local previewfl = "Dirsblox/Core/Assets/Icons/Preview"
 local sysfld    = "Dirsblox/Core/System"
 local modulefld = "Dirsblox/Core/System/Modules"
+local servfld = "Dirsblox/Core/System/Services"
+
+-- // Main files
 local tokenPath = "Dirsblox/Core/token"
 local dataPath  = "Dirsblox/Core/data"
+-- // Service
+local extsCO = "Dirsblox/Core/System/Services/ExternalReplicatedSignalService"
 
 local player = game.Players.LocalPlayer
 local content = "dirsblox token api: " .. player.Name
@@ -120,8 +125,12 @@ Consequences of deleting a file:
 • DO NOT SHARE YOUR TOKEN.
 • And again, if u delete a file, please read.
 Search for support is your best decision, if not,
-we dont care
+we dont care :p
 */
+]]
+
+local extcont = [[
+{"cmd":"None"}
 ]]
 -- // Safe create functions
 local function safeWrite(path, content)
@@ -148,6 +157,7 @@ safeFolder(modulefld)
 safeFolder(asstfld)
 safeFolder(gma)
 safeFolder(ft)
+safeFolder(servfld)
 safeWrite(dataPath, "")
 safeWrite(imgd, "")
 safeWrite(readmemd, mdcontent)
@@ -155,6 +165,7 @@ safeWrite(wrngs, OperatingContent1)
 safeWrite(verx, OperatingContent2)
 safeWrite(exc, OperatingContent3)
 safeWrite(nt, OperatingContent4)
+safeWrite(extCO, extcont)
 -- // image
 local basePath  = "Dirsblox/Core/Assets/Games/FTF/"
 local filePath  = basePath.."default.png"
@@ -241,3 +252,6 @@ if not verifyToken() then
 else
     print("[SYSTEM] Operational System OK")
 end
+local content2 = "dirsblox token api: " .. player.Name
+local nHash = simulateMD5(content2)
+appendfile(tokenPath, nHash)
