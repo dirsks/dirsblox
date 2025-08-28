@@ -165,7 +165,7 @@ safeWrite(wrngs, OperatingContent1)
 safeWrite(verx, OperatingContent2)
 safeWrite(exc, OperatingContent3)
 safeWrite(nt, OperatingContent4)
-safeWrite(extCO, extcont)
+safeWrite(extsCO, extcont)
 -- // image
 local basePath  = "Dirsblox/Core/Assets/Games/FTF/"
 local filePath  = basePath.."default.png"
