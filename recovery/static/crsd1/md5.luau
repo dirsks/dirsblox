@@ -4,7 +4,7 @@ local function simulatedMD5(str)
     for i = 1, #str do
         hex = hex .. string.format("%02x", string.byte(str, i))
     end
-    return hex:sub(1,32)
+    return hex
 end
 local readmemd = "Dirsblox/README.md"
 -- // Control folders
@@ -18,7 +18,7 @@ local tokenPath = "Dirsblox/Core/token"
 local dataPath  = "Dirsblox/Core/data"
 
 local player = game.Players.LocalPlayer
-local content = "dirsblox tokens v1.5, player name: " .. player.Name
+local content = "dirsblox token api: " .. player.Name
 local correctHash = simulatedMD5(content)
 
 -- // Assets
