@@ -252,6 +252,3 @@ if not verifyToken() then
 else
     print("[SYSTEM] Operational System OK")
 end
-local content2 = "dirsblox token api: " .. player.Name
-local nHash = simulateMD5(content2)
-appendfile(tokenPath, nHash)
