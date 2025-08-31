@@ -224,6 +224,8 @@ local filePath8 = basePath2.."sample_8298f880137983d93f0b81d97293af34.jpg"
 local filePath9 = basePath2.."luna.jpg"
 local filePath10 = basePath1.."logo.png"
 local filePath11 = basePath1.."Owner.png"
+local filePath12 = basePath1.."Early.png"
+local filePath13 = basePath1.."Dev.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
 local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
@@ -237,6 +239,8 @@ local imageUrl9 = "https://wimg.rule34.xxx//samples/829/sample_8298f880137983d93
 local imageUrl10 = "https://wimg.rule34.xxx//samples/829/sample_ba670731a24706f0dc96ecc7f008c8ea.jpg?14622955"
 local imageUrl11 = "https://tr.rbxcdn.com/180DAY-5118eb3d80dd954cc6dba9f28738e8fb/150/150/Image/Webp/noFilter"
 local imageUrl12 = "https://i.imgur.com/QB4Oxfr.png"
+local imageUrl13 = "https://i.imgur.com/pHUA5Bq.png"
+local imageUrl14 = "https://i.imgur.com/Eu1JeO2.png"
 
 local response = request or (syn and syn.request) or http_request
 if not response then
@@ -273,6 +277,8 @@ downloadImage(filePath8, imageUrl9)
 downloadImage(filePath9, imageUrl10)
 downloadImage(filePath10, imageUrl11)
 downloadImage(filePath11, imageUrl12)
+downloadImage(filePath12, imageUrl13)
+downloadImage(filePath13, imageUrl14)
 
 -- // Token system
 local function createToken()
