@@ -223,6 +223,7 @@ local filePath7 = basePath2.."GetRequest.png"
 local filePath8 = basePath2.."sample_8298f880137983d93f0b81d97293af34.jpg"
 local filePath9 = basePath2.."luna.jpg"
 local filePath10 = basePath1.."logo.png"
+local filePath11 = basePath1.."Owner.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
 local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
@@ -235,6 +236,7 @@ local imageUrl8 = "https://cdn.discordapp.com/attachments/1409320415171444858/14
 local imageUrl9 = "https://wimg.rule34.xxx//samples/829/sample_8298f880137983d93f0b81d97293af34.jpg?14623434" -- sample_8298f880137983d93f0b81d97293af34.png
 local imageUrl10 = "https://wimg.rule34.xxx//samples/829/sample_ba670731a24706f0dc96ecc7f008c8ea.jpg?14622955"
 local imageUrl11 = "https://tr.rbxcdn.com/180DAY-5118eb3d80dd954cc6dba9f28738e8fb/150/150/Image/Webp/noFilter"
+local imageUrl12 = "https://i.imgur.com/QB4Oxfr.png"
 
 local response = request or (syn and syn.request) or http_request
 if not response then
@@ -270,6 +272,7 @@ downloadImage(filePath7, imageUrl8)
 downloadImage(filePath8, imageUrl9)
 downloadImage(filePath9, imageUrl10)
 downloadImage(filePath10, imageUrl11)
+downloadImage(filePath11, imageUrl12)
 
 -- // Token system
 local function createToken()
