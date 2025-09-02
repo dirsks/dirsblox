@@ -226,6 +226,7 @@ local filePath10 = basePath1.."logo.png"
 local filePath11 = basePath1.."Owner.png"
 local filePath12 = basePath1.."Early.png"
 local filePath13 = basePath1.."Dev.png"
+local filePath14 = basePath1.."discordIcon.png"
 
 local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
 local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
@@ -241,6 +242,7 @@ local imageUrl11 = "https://tr.rbxcdn.com/180DAY-5118eb3d80dd954cc6dba9f28738e8f
 local imageUrl12 = "https://i.imgur.com/QB4Oxfr.png"
 local imageUrl13 = "https://i.imgur.com/pHUA5Bq.png"
 local imageUrl14 = "https://i.imgur.com/Eu1JeO2.png"
+local imageUrl15 = "https://i.imgur.com/YZLgJFW.png" -- discordIcon.png
 
 local response = request or (syn and syn.request) or http_request
 if not response then
@@ -279,6 +281,7 @@ downloadImage(filePath10, imageUrl11)
 downloadImage(filePath11, imageUrl12)
 downloadImage(filePath12, imageUrl13)
 downloadImage(filePath13, imageUrl14)
+downloadImage(filePath14, imageUrl15)
 
 -- // Token system
 local function createToken()
