@@ -331,8 +331,6 @@ local function safeWriteUpdate(path, content)
     end
 end
 
-safeWriteUpdate(exc, OperatingContent3)
-
 local function verifyToken()
     local success, token = pcall(readfile, tokenPath)
     if not success then
