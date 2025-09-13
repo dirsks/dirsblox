@@ -119,9 +119,19 @@ local function detect_executor()
     return game.Players.LocalPlayer.Name.."#"..game.Players.LocalPlayer.UserId
 end
 
+-- Lista de executores que NÃO suportam sistema de arquivos
+local no_file_system = {
+    ["Arceus X"] = true,
+    ["Delta"] = false,
+    ["Vega X"] = true,
+    ["Fluxus Mobile"] = true,
+    ["Titan"] = true,
+    ["Exec X Mobile"] = true,
+}
+
 -- Uso
 local executorName = detect_executor()
-if executorName == "Arceus X" then
+if no_file_system[executorName] then
     warn(executorName.." does not support Dodo Development#157. Contact our support at discord.gg/Tn8yx4n5")
     return
 end
