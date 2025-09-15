@@ -214,8 +214,7 @@ local filePath4 = basePath1.."CVUSDOX.png"
 local filePath5 = basePath1.."gfJHGSv.png"
 local filePath6 = basePath1.."5uT3mrj.png"
 local filePath7 = basePath2.."GetRequest.png"
-local filePath8 = basePath2.."sample_8298f880137983d93f0b81d97293af34.jpg"
-local filePath9 = basePath2.."luna.jpg"
+-- del 2 im
 local filePath10 = basePath1.."logo.png"
 local filePath11 = basePath1.."Owner.png"
 local filePath12 = basePath1.."Early.png"
@@ -230,8 +229,7 @@ local imageUrl5 = "https://i.imgur.com/CVUSDOX.png" -- tab4.png (Exploit Tab)
 local imageUrl6 = "https://i.imgur.com/gfJHGSv.png" -- tab5.png (Settings)
 local imageUrl7 = "https://i.imgur.com/5uT3mrj.png" -- tipicon.png (++)
 local imageUrl8 = "https://cdn.discordapp.com/attachments/1409320415171444858/1410386129546641560/image0.png?ex=68b0d3f0&is=68af8270&hm=a51a026132cb6f64d92fe7117a914a24c321e1e590c804ea0d848236c19a8df1&"
-local imageUrl9 = "https://wimg.rule34.xxx//samples/829/sample_8298f880137983d93f0b81d97293af34.jpg?14623434" -- sample_8298f880137983d93f0b81d97293af34.png
-local imageUrl10 = "https://wimg.rule34.xxx//samples/829/sample_ba670731a24706f0dc96ecc7f008c8ea.jpg?14622955"
+-- del 2 im
 local imageUrl11 = "https://tr.rbxcdn.com/180DAY-5118eb3d80dd954cc6dba9f28738e8fb/150/150/Image/Webp/noFilter"
 local imageUrl12 = "https://i.imgur.com/QB4Oxfr.png"
 local imageUrl13 = "https://i.imgur.com/pHUA5Bq.png"
@@ -270,8 +268,7 @@ downloadImage(filePath5, imageUrl6)
 downloadImage(filePath6, imageUrl7)
 downloadImage(filePath7, imageUrl8)
 downloadImage(filePath8, imageUrl9)
-downloadImage(filePath9, imageUrl10)
-downloadImage(filePath10, imageUrl11)
+
 downloadImage(filePath11, imageUrl12)
 downloadImage(filePath12, imageUrl13)
 downloadImage(filePath13, imageUrl14)
